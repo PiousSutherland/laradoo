@@ -18,6 +18,9 @@ function laradooConfig()
         if (file_exists(config_path('laradoo.php'))) {
             $configuration = include(config_path('laradoo.php'));
 
+            $configuration['username'] = config('laradoo')['username'] ?? $configuration['username'] ?? null;
+            $configuration['password'] = config('laradoo')['password'] ?? $configuration['password'] ?? null;
+
             return $configuration;
         }
     }
